@@ -1,0 +1,34 @@
+{
+  "name": "MikeTYChen",
+  "version": "0.1.0",
+  "description": "MikeTYChen",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "3.4.7",
+    "jade": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "passport-facebook": "~1.0.2", 
+    "passport-twitter": "~1.0.2",  
+    "passport-google-oauth": "~0.1.5"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "hhttps://github.com/MikeTYChen/MikeTYChen.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "Michael Chen"
+}
+
