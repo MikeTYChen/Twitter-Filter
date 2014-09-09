@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1= title
+    form#formAddUser(name="adduser",method="post",action="/adduser")
+        input#filter(type="text", placeholder="filter", name="filter")
+        button#btnSubmit(type="submit") submit

@@ -1,0 +1,62 @@
+extends layout
+
+block content
+	.row
+		.col-md-12
+			img.img-responsive(src="/images/twitter_logo.jpg" style="margin:0 auto; width:120px;")
+		.col-md-12.margin-top-1p
+			h1.text-center.text-gray filter my tweets by...
+	.row
+		form.form-inline#formAddUser(name="adduser",method="post",action="/adduser")
+			.row.margin-top-3p
+				.col-md-6.col-md-offset-3
+						.col-md-6
+							input.input-class#filterString.form-control(type='text',name="filterString",placeholder='filter by text')
+						.col-md-6
+							#reportrange.pull-right(style='background: #fff; cursor: pointer; padding: 15px 20px; border: 1px solid #ccc;border-radius:5px')
+								span(style="text-align:left;font-size:12px")
+								input#hiddenStart(type="hidden",value=" ",name="startDate")
+								input#hiddenFinish(type="hidden",value=" ",name="endDate")
+								ab.caret
+			.row.margin-top-3p
+				.col-md-4.col-md-offset-4
+					.checkbox(style="padding-left:30px")
+						input#filterLink(type="checkbox" name="filterLink" value="http" style="float:left;size:50px") 
+						span(style="margin-left:15px; font-size:20px").
+							show only tweets with links
+			.row.margin-top-3p
+				.col-md-2.col-md-offset-4
+					button.btn.btn-primary.btn-lg.btn-block#btnSubmit(type="submit", style="text-align:center; margin:auto") search 
+				.col-md-2
+					button.btn.btn-primary.btn-lg.btn-block#btnSubmit(type="submit", style="text-align:center; margin:auto") reset 
+	each user, i in userlist
+		if i===0
+			.row.margin-top-3p
+				.col-md-12.text-center
+					h4.text-center Showing Filter:
+					h5.text-center Handle: @EpicAtNU
+					h5.text-center #{user.filterS}
+					h5.text-center #{user.filterL}
+					h5.text-center #{user.filterD}
+		if i%3===0
+			.row
+		.col-md-4.margin-top-3p
+			.tweet-box
+				.row
+					.col-md-12
+						h5.text-bold #{i+1}. #{user.creator}
+				.row.margin-top-5p
+					.col-md-12
+						h5 #{user.message}
+				.row.margin-top-5p
+					.col-md-12
+						h5 #{user.date}
+	.row(style="padding-bottom:1%")
+		.col-md-12(style="margin-top:1%; text-align:center")
+			a.text-gray.text-center(href="http://www.twitter.com",style="font-size:20px", target="_blank") Created by @MiketTYChen
+	//- each user, i in userlist
+	//- 	if i%3===0
+	//- 		.break-row
+	//- 	.tweet-row
+	//- 		.tweet-box
+	//- 			h5 #{user.message}
