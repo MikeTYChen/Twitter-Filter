@@ -64,7 +64,7 @@ exports.home= function(req, res) {
 exports.adduser= function(req, res) {
     var twit_screenName=req.body.screenName;
     if (twit_screenName=="" ||twit_screenName==undefined){
-        twit_screenName="epicatnu";
+        twit_screenName="miketychen";
     }
     console.log(twit_screenName);
     // Set our internal DB variable
