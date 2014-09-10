@@ -62,7 +62,11 @@ exports.home= function(req, res) {
 
 /* POST to Add User Service */
 exports.adduser= function(req, res) {
-    
+    var twit_screenName=req.body.screenName;
+    if (twit_screenName=="" ||twit_screenName==undefined){
+        twit_screenName="epicatnu";
+    }
+    console.log(twit_screenName);
     // Set our internal DB variable
     collection.remove({}, function(err) { 
        console.log('collection removed') 
@@ -77,7 +81,6 @@ exports.adduser= function(req, res) {
     var data='';
     var tweetsAdded=0;
     var check=0;
-    var twit_screenName="epicatnu";
     T.get('statuses/user_timeline', { screen_name:twit_screenName, count:500 }, function(err, data, response) {
         var check=0;
         var creator="";
@@ -173,8 +176,9 @@ exports.adduser= function(req, res) {
                 tweetsAdded++;
                 console.log("ADDING");
                 console.log(date);
-
+                console.log(twit_screenName);
                 var newTweet = new collection({
+                    screenName:twit_screenName,
                     filterS:filterS,
                     filterL:filterL,
                     filterD:filterD,
@@ -188,7 +192,7 @@ exports.adduser= function(req, res) {
                 if(err){
                     console.log('Problem adding contact')
                     res.send('fail');
-                    console.log(doc);
+                    console.log(err);
                 }
                 else{
                     console.log('Added new contact successfully');
@@ -212,6 +216,7 @@ exports.adduser= function(req, res) {
                 console.log(date);
              
                 var newTweet = new collection({
+                    screenName:twit_screenName,
                     filterS:filterS,
                     filterL:filterL,
                     filterD:filterD,
@@ -247,6 +252,7 @@ exports.adduser= function(req, res) {
             console.log("NONE");
 
             var newTweet = new collection({
+                    screenName:twit_screenName,
                     filterS:filterS,
                     filterL:filterL,
                     filterD:filterD,
@@ -270,6 +276,8 @@ exports.adduser= function(req, res) {
             });
                 
              }
+             console.log("SDF");
+             console.log(twit_screenName);
         // If it worked, set the header so the address bar doesn't still say /adduser
             res.location("/");
             // And forward to success page

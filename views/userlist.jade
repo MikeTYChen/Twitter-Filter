@@ -10,6 +10,10 @@ block content
 		form.form-inline#formAddUser(name="adduser",method="post",action="/adduser")
 			.row.margin-top-3p
 				.col-md-6.col-md-offset-3
+						.col-md-12
+							input.input-class#twit_screenName.form-control(type='text',name="screenName",placeholder='Twitter Handle (default @EPICatNU)')
+			.row.margin-top-3p
+				.col-md-6.col-md-offset-3
 						.col-md-6
 							input.input-class#filterString.form-control(type='text',name="filterString",placeholder='filter by text')
 						.col-md-6
@@ -34,7 +38,7 @@ block content
 			.row.margin-top-3p
 				.col-md-12.text-center
 					h4.text-center Showing Filter:
-					h5.text-center Handle: @EpicAtNU
+					h5.text-center Handle: @#{user.screenName}
 					h5.text-center #{user.filterS}
 					h5.text-center #{user.filterL}
 					h5.text-center #{user.filterD}

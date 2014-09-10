@@ -19,7 +19,7 @@
 10 error There is likely additional logging output above.
 11 error System Darwin 14.0.0
 12 error command "node" "/usr/local/bin/npm" "start"
-13 error cwd /Users/MikeTYChen/Dropbox/Mike/Comp Sci/Websites/MikeTYChen-App/Mike/MikeTYChen
+13 error cwd /Users/MikeTYChen/Dropbox/Mike/Comp Sci/Websites/Twitter-Filter
 14 error node -v v0.10.31
 15 error npm -v 1.4.23
 16 error code ELIFECYCLE

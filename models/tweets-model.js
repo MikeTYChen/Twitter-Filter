@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var contactSchema = new Schema({
+	screenName:{ type: String, required : true},
 	filterS:{ type: String, required : true},
 	filterL:{ type: String, required : true},
 	filterD:{ type: String, required : true},
